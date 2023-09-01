@@ -72,40 +72,44 @@ class _login_pageState extends State<login_page> {
                     //     Navigator.pushNamed(context, MyRoutes.homeRoute);
                     //   },
                     // ),
-                    InkWell(
-                      //to make the container clickable
-                      onTap: () async {
-                        setState(() {
-                          changeButton = true;
-                        });
-                      
-                        await Future.delayed(Duration(seconds: 1));
-                        Navigator.pushNamed(context, MyRoutes.homeRoute);
-                      },
-                      child: AnimatedContainer(
-                        duration: Duration(seconds: 1),
-                        width: changeButton ? 50 : 150,
-                        height: 50,
-                        alignment: Alignment.center,
-                        child: changeButton
-                            ? Icon(
-                                Icons.done,
-                                color: Colors.white,
-                              )
-                            : Text(
-                                "Login",
-                                style: TextStyle(
+                    Material(
+                      child: InkWell( 
+                        //to make the container clickable
+                     // aage ya pichhe button ko color dene ke liye 
+                        onTap: () async { // on tap method ko async kiya hai because kyuki jo await future delay wala function hai usko isi class mei rakhna pdega warna kam nahi karega 
+
+                          setState(() {
+                            changeButton = true;
+                          });
+                        
+                          await Future.delayed(Duration(seconds: 1)); // click karne ke baad 1 second wait karna hai 
+                          Navigator.pushNamed(context, MyRoutes.homeRoute); // click karne ke baad kisi new page mei jane ke  liye 
+                        },
+                        child: AnimatedContainer(
+                          duration: Duration(seconds: 1),
+                          width: changeButton ? 50 : 150,
+                          height: 50,
+                          alignment: Alignment.center,
+                          child: changeButton
+                              ? Icon(
+                                  Icons.done,
                                   color: Colors.white,
-                                  fontSize: 16,
+                                )
+                              : Text(
+                                  "Login",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                  ),
                                 ),
-                              ),
-                        decoration: BoxDecoration(
-                          color: Colors.lightBlue,
-                          // shape: changeButton
-                          //     ? BoxShape.circle
-                          //     : BoxShape.rectangle,
-                          borderRadius:
-                              BorderRadius.circular(changeButton ? 50 : 8),
+                          decoration: BoxDecoration(
+                            color: Colors.lightBlue,
+                            // shape: changeButton
+                            //     ? BoxShape.circle
+                            //     : BoxShape.rectangle,
+                            borderRadius:
+                                BorderRadius.circular(changeButton ? 50 : 8),
+                          ),
                         ),
                       ),
                     ),
