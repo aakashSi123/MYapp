@@ -4,6 +4,7 @@ import 'package:sssi/pages/login_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sssi/utils/routes.dart';
 import 'package:sssi/widgets/drawer.dart';
+import 'package:sssi/widgets/themes.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,15 +17,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        color: Colors.white,
         themeMode: ThemeMode.light,
-        theme: ThemeData(
-          primarySwatch: Colors.deepPurple,
-          fontFamily: GoogleFonts.lato().fontFamily,
-          primaryTextTheme: GoogleFonts.latoTextTheme(),
-        ),
+        theme: MyTheme.lightTheme(context),
+        darkTheme: MyTheme.darkTheme(context),
         debugShowCheckedModeBanner: false,
-        initialRoute: MyRoutes.homeRoute,
+        initialRoute: MyRoutes.loginRoute,
         routes: {
           "/": (context) => login_page(),
           MyRoutes.homeRoute: (context) => Homepage(),

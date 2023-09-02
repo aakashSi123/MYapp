@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sssi/widgets/themes.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -72,7 +73,21 @@ class MyDrawer extends StatelessWidget {
                     color: Colors.white,
                   ),
                 ),
-              )
+              ),
+              ListTile(
+                leading: Icon(
+                  CupertinoIcons.sun_max_fill,
+                  color: Colors.white,
+                ),
+                title: Text(
+                  "Dark Mode",
+                  textScaleFactor: 1.2,
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+                onTap: () => MyTheme.darkTheme(context),
+              ),
             ],
           ),
         ),
