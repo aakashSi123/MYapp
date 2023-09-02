@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:sssi/Models/catalog.dart';
 
 import 'package:sssi/widgets/drawer.dart';
+
+import '../widgets/item_widget.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -21,9 +24,15 @@ class Homepage extends StatelessWidget {
           style: TextStyle(color: Colors.black),
         ),
       ),
-      body: Center(
-        child: Container(
-          child: Text("Welcome to OUR APP SSSI"),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: ListView.builder(
+          itemCount: CatalogModel.items.length,
+          itemBuilder: (context, index) {
+            return ItemWidget(
+              item: CatalogModel.items[index],
+            );
+          },
         ),
       ),
       drawer: MyDrawer(),

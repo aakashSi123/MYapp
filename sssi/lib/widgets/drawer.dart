@@ -86,7 +86,12 @@ class MyDrawer extends StatelessWidget {
                     color: Colors.white,
                   ),
                 ),
-                onTap: () => MyTheme.darkTheme(context),
+                onTap: () {
+                  print("Pressed darkmode");
+                },
+                onLongPress: () {
+                  print("User long pressed iphone 12 pro max");
+                },
               ),
             ],
           ),
